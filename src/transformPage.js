@@ -16,9 +16,9 @@ const transformPage = async ({ rawPage, repo }) => {
   );
   $('html').attr('data-color-mode', 'light');
   $('.flex-items-center').remove();
-  $('a').each(function () {
+  $('a:not(.d-block.Link--muted)').each(function () {
     const old = $(this).attr('href');
-    $(this).attr('href', `https://github.com${old}`);
+    if (!old?.includes('https://github.com')) $(this).attr('href', `https://github.com${old}`);
   });
   $('h2.Subhead-heading').prepend(
     $(`<b style="font-weight: bolder">${repo}</b>: `),
@@ -67,9 +67,11 @@ const transformPage = async ({ rawPage, repo }) => {
   });
   Object.keys(style).forEach((k) => {
     $(k).each(function () {
+      const box = 'box-sizing: border-box;'
       const old = $(this).attr('style');
-      if (old) $(this).attr('style', `${old}; ${style[k]}`);
-      else $(this).attr('style', `${style[k]}`);
+      const temp = old?.includes(box) ? style[k] : `${style[k]}; ${box}`
+      if (old) $(this).attr('style', `${old}; ${temp}`);
+      else $(this).attr('style', `${temp}`);
     });
   });
   return $.html();
