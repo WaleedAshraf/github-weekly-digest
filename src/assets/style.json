@@ -106,5 +106,6 @@
   ".col-md-3": "width: 24.99999999%; box-sizing: border-box;",
   ".col-md-6": "width: 49.99999998%; box-sizing: border-box;",
   ".conversation-list-heading": "height: 0;margin: 32px 0 16px;font-size: 16px;font-weight: 400;color: #57606a !important;text-align: center;border-bottom: 1px solid #d0d7de; box-sizing: border-box;",
-  ".conversation-list-heading .inner": "position: relative; top: -16px; display: inline-block; padding: 0 4px; background: #ffffff;; box-sizing: border-box;"
+  ".conversation-list-heading .inner": "position: relative; top: -16px; display: inline-block; padding: 0 4px; background: #ffffff;; box-sizing: border-box;",
+  ".d-block img": "float: none"
 }

@@ -1,7 +1,7 @@
 {
   "name": "github-weekly-digest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Receive weekly email digest for GitHub repos you are interested in.",
   "main": "index.js",
   "scripts": {
     "send": "node src/index.js",
