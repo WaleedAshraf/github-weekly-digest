@@ -43,7 +43,10 @@ const sendEmail = ({ toEmail, body, user }) => {
 
 const sendDigest = async () => {
   const content = await readFile(`./subscribers.csv`);
-  const records = parse(content);
+  const records = parse(content, {
+    from: 2,
+    relax_column_count: true
+  });
   let response = ""
   for (const record of records) {
     const toEmail = record[0]
@@ -59,6 +62,8 @@ const sendDigest = async () => {
   }
   return response;
 };
+
+sendDigest()
 
 module.exports = {
   sendDigest,

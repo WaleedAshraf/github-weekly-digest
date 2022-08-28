@@ -1,0 +1,19 @@
+name: Scheduled Job
+
+on:
+  schedule:
+    - cron: "0 0 8 ? * MON *"
+
+jobs:
+  scheduled-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+        env:
+          MJ_API_KEY: ${{ secrets.MJ_API_KEY }}
+          MJ_API_SECRET: ${{ secrets.MJ_API_SECRET }}
+      - run: npm install
+      - run: npm run send
